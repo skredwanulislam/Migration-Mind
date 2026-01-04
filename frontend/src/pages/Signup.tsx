@@ -81,14 +81,7 @@ export default function Signup() {
     {/* BACKGROUND GLOW */}
     <div className="absolute inset-0 bg-gradient-to-br from-orange-600/20 via-black to-black"></div>
 
-    {/* HEADER BAR */}
-    <header className="relative z-10 w-full h-14 flex items-center px-8
-      bg-gradient-to-r from-black via-[#1a120d] to-black
-      border-b border-white/10">
-      <span className="text-white text-lg font-semibold tracking-wide">
-        Migration Mind
-      </span>
-    </header>
+   
 
     {/* MAIN CONTENT */}
     <div className="relative z-10 flex-1 flex items-center justify-center px-8">
@@ -109,8 +102,8 @@ export default function Signup() {
         <div className="flex flex-col items-center">
 
           {/* SIGNUP CARD */}
-          <div className="w-full max-w-sm bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl p-6 shadow-xl text-white">
-            <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="w-full max-w-lg bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl p-8 shadow-xl text-white">
+            <form onSubmit={handleSubmit} className="space-y-6">
 
               <input
                 type="text"
@@ -119,7 +112,7 @@ export default function Signup() {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 bg-black/40 border border-orange-500/50 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+                className="w-full px-5 py-3 bg-black/40 border border-orange-500/50 rounded-md text-base focus:outline-none focus:ring-2 focus:ring-orange-500"
               />
 
               <input
@@ -129,7 +122,7 @@ export default function Signup() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 bg-black/40 border border-white/20 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+                className="w-full px-5 py-3 bg-black/40 border border-white/20 rounded-md text-base focus:outline-none focus:ring-2 focus:ring-orange-500"
               />
 
               <input
@@ -139,7 +132,7 @@ export default function Signup() {
                 value={formData.password}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 bg-black/40 border border-white/20 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+                className="w-full px-5 py-3 bg-black/40 border border-white/20 rounded-md text-base focus:outline-none focus:ring-2 focus:ring-orange-500"
               />
 
               <input
@@ -149,48 +142,41 @@ export default function Signup() {
                 value={formData.confirmPassword}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 bg-black/40 border border-white/20 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+                className="w-full px-5 py-3 bg-black/40 border border-white/20 rounded-md text-base focus:outline-none focus:ring-2 focus:ring-orange-500"
               />
 
               {error && (
-                <p className="text-red-400 text-xs">{error}</p>
+                <p className="text-red-400 text-sm">{error}</p>
               )}
 
               <button
                 type="submit"
                 disabled={submitting}
-                className="w-full bg-orange-500 hover:bg-orange-600 transition text-black font-semibold py-2 rounded-md"
+                className="w-full bg-orange-500 hover:bg-orange-600 transition text-black font-semibold py-3 rounded-md text-base"
               >
                 {submitting ? "Creating account..." : "Sign Up"}
               </button>
 
-              <p className="text-xs text-center text-gray-300 mt-3">
+              <p className="text-sm text-center text-gray-300 mt-4">
                 Already have an account?{" "}
                 <a href="/login" className="text-orange-400 hover:underline">
                   Log in
                 </a>
               </p>
             </form>
-          </div>
-
-          {/* SOCIAL LOGIN — BOX ER BAIRE */}
-          <div className="flex gap-4 mt-4">
-            <button className="flex items-center gap-2 px-4 py-2 bg-white/10 border border-white/20 rounded-md text-xs text-white hover:bg-white/20">
+            {/* GOOGLE SIGN UP */}
+          <div className="flex gap-4 mt-6 w-full justify-center">
+            <button onClick={handleGoogleSignUp} disabled={submitting} className="flex items-center w-full justify-center gap-2 px-6 py-3 bg-white/10 border border-white/20 rounded-md text-sm text-white hover:bg-white/20 disabled:opacity-50 disabled:cursor-not-allowed font-medium">
               <img
-                src="https://s3-alpha.figma.com/hub/file/2729744958/2a5758d6-4edb-4047-87bb-e6b94dbbbab0-cover.png"
-                className="w-4 h-4"
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%234285F4' d='M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z'/%3E%3Cpath fill='%2334A853' d='M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z'/%3E%3Cpath fill='%23FBBC05' d='M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z'/%3E%3Cpath fill='%23EA4335' d='M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z'/%3E%3C/svg%3E"
+                className="w-5 h-5"
               />
-              Google
-            </button>
-
-            <button className="flex items-center gap-2 px-4 py-2 bg-white/10 border border-white/20 rounded-md text-xs text-white hover:bg-white/20">
-              <img
-                src="https://img.freepik.com/premium-vector/square-linkedin-logo-isolated-white-background_469489-892.jpg"
-                className="w-4 h-4"
-              />
-              LinkedIn
+              {submitting ? 'Signing up...' : 'Google'}
             </button>
           </div>
+          </div>
+
+          
 
         </div>
       </div>
